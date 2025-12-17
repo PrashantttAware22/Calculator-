@@ -14,7 +14,7 @@ buttons.forEach((btn) => {
         }
 
         // Click Delete : 
-        else if (btn.innerText === "Del") {
+        else if (document.getElementById("Del")) {
             string = string.slice(0, -1);
             ResultBox.value = string;
         }
