@@ -4,26 +4,23 @@ let ResultBox = document.getElementById("Result");
 let string = "";
 let operators = ["+", "-", "*", "/", "%"];
 
-buttons.forEach((btn) => {
+buttons.forEach(btn => {
     btn.addEventListener("click", () => {
 
-        // All Clear click : 
         if (btn.innerText === "AC") {
             string = "";
             ResultBox.value = "";
         }
 
-        // Click Delete : 
-        else if (btn.dataset.action === "Del") {
+        else if (btn.dataset.action === "del") {
             string = string.slice(0, -1);
             ResultBox.value = string;
         }
 
-        // Click Equals to : 
         else if (btn.innerText === "=") {
-            if (string === "") return;
+            if (!string) return;
             try {
-                string = eval(string);
+                string = eval(string).toString();
                 ResultBox.value = string;
             } catch {
                 ResultBox.value = "Error";
@@ -31,12 +28,9 @@ buttons.forEach((btn) => {
             }
         }
 
-        // Numbers and Operators click : 
         else {
             let lastChar = string.slice(-1);
-
-            if (operators.includes(lastChar) && operators.includes(btn.innerText)) return; 
-            // Very Important this will check last String character is Any operator or not 
+            if (operators.includes(lastChar) && operators.includes(btn.innerText)) return;
 
             string += btn.innerText;
             ResultBox.value = string;
