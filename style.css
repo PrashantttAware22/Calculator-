@@ -42,7 +42,7 @@ body {
     font-size: 1.5rem;
     font-weight: 700;
     cursor: pointer;
-    /* user-select: none; */
+    user-select: none;
 }
 
 .Button:active {
